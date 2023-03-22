@@ -1,5 +1,5 @@
 import { HttpClient } from "../../../core/httpClient";
-import type { StrapiPageResponse } from "../model/StrapiPageContentType.interface";
+import type { StrapiPageResponse } from "../model/strapi/StrapiPageContentType.interface";
 import qs from "qs";
 
 export class StrapiPageRepository {

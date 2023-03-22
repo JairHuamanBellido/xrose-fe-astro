@@ -1,5 +1,5 @@
-import type { StrapiNavigationContentType } from "../../infrastructure/model/StrapiNavigationContentType.interface";
-import type { NavigationDomain } from "../model/NavigationDomain.model";
+import type { StrapiNavigationContentType } from "../../../infrastructure/model/strapi/StrapiNavigationContentType.interface";
+import type { NavigationDomain } from "../../model/NavigationDomain.model";
 import { StrapiSubpartNavigationMapper } from "./StrapiSubpartNavigationMapper";
 
 export class StrapiNavigationMapper {

@@ -1,0 +1,17 @@
+---
+import type { SubpartNavigationDomain } from "../../lib/navigation/domain/model/SubpartNavigationDomain.model";
+
+interface Props {
+  subpartNavigation: SubpartNavigationDomain;
+}
+
+const {
+  subpartNavigation: { label, page },
+} = Astro.props;
+---
+
+<li>
+  <a href={page.slug}>
+    {label}
+  </a>
+</li>

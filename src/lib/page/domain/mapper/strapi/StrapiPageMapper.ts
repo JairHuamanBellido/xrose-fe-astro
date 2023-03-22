@@ -1,10 +1,10 @@
-import type { StrapiPageContentType } from "../../infrastructure/model/StrapiPageContentType.interface";
-import type { PageDomain } from "../model/PageDomain.model";
+import type { StrapiPageContentType } from "../../../infrastructure/model/strapi/StrapiPageContentType.interface";
+import type { PageDomain } from "../../model/PageDomain.model";
 
 export class StrapiPageMapper {
   static toDomainEntity(strapiPage: StrapiPageContentType): PageDomain {
     return {
-      slug: strapiPage.slug,
+      slug: strapiPage.slug === "/" ? "/" : `/${strapiPage.slug}`,
     };
   }
 

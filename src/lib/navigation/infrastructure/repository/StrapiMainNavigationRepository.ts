@@ -1,6 +1,6 @@
 import QueryString from "qs";
 import { HttpClient } from "../../../core/httpClient";
-import type { StrapiNavigationResponse } from "../model/StrapiNavigationContentType.interface";
+import type { StrapiNavigationResponse } from "../model/strapi/StrapiNavigationContentType.interface";
 
 export class StrapiMainNavigationRepository {
   async get(): Promise<StrapiNavigationResponse> {
