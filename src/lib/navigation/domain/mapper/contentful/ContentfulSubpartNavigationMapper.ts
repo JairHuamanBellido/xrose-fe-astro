@@ -1,7 +1,7 @@
 import type { Entry } from "contentful";
-import { ContentfulPageMapper } from "../../../page/domain/mapper/ContentfulPageMapper";
-import type { ContentfulSubpartNavigationContentType } from "../../infrastructure/model/ContentfulSubpartNavigationContentType.interface";
-import type { SubpartNavigationDomain } from "../model/SubpartNavigationDomain.model";
+import { ContentfulPageMapper } from "../../../../page/domain/mapper/contentful/ContentfulPageMapper";
+import type { ContentfulSubpartNavigationContentType } from "../../../infrastructure/model/contentful/ContentfulSubpartNavigationContentType.interface";
+import type { SubpartNavigationDomain } from "../../model/SubpartNavigationDomain.model";
 
 export class ContentfulSubpartNavigationMapper {
   static toDomainEntity(

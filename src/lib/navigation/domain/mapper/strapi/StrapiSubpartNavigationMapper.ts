@@ -1,6 +1,6 @@
-import { StrapiPageMapper } from "../../../page/domain/mapper/StrapiPageMapper";
-import type { StrapiSubpartNavigationContentType } from "../../infrastructure/model/StrapiSubpartNavigationContentType.interface";
-import type { SubpartNavigationDomain } from "../model/SubpartNavigationDomain.model";
+import { StrapiPageMapper } from "../../../../page/domain/mapper/strapi/StrapiPageMapper";
+import type { StrapiSubpartNavigationContentType } from "../../../infrastructure/model/strapi/StrapiSubpartNavigationContentType.interface";
+import type { SubpartNavigationDomain } from "../../model/SubpartNavigationDomain.model";
 
 export class StrapiSubpartNavigationMapper {
   static toDomainEntity(
