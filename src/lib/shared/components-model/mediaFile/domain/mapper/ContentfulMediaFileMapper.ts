@@ -8,7 +8,7 @@ export class ContentfulMediaFileMapper {
   ): MediaFileDomain {
     return {
       altText: contentMediaFile.fields.altText,
-      url: contentMediaFile.fields.media.fields.file.url,
+      url: `${contentMediaFile.fields.media.fields.file.url}?fm=webp`,
     };
   }
 

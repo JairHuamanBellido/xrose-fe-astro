@@ -18,6 +18,7 @@ const { heading, htmlBody, image } = Astro.props;
     </div>
     <div class="w-2/5 relative">
       <Image
+        loading={"lazy"}
         alt={image.altText}
         class={"w-full"}
         width={1000}
