@@ -3,6 +3,7 @@ import type { ContentfulSectionHeroContentType } from "../../infrastructure/mode
 import type { SectionHeroDomain } from "../model/SectionHeroDomain.model";
 import { ContentfulMediaFileMapper } from "../../../mediaFile/domain/mapper/ContentfulMediaFileMapper";
 import { ContentfulSubpartButtonMapper } from "../../../subpartButton/domain/mapper/ContentfulSubpartButtonMapper";
+import { ContentfulSubpartTrustedCompaniesMapper } from "../../../subpartTrustedCompanies/domain/mapper/ContentfulSubpartTrustedCompaniesMapper";
 
 export class ContentfulSectionHeroMapper {
   static toDomainEntity(
@@ -14,6 +15,11 @@ export class ContentfulSectionHeroMapper {
         )
       : undefined;
 
+    const trusted_companies = contentfulSectionHero.fields.trustedCompanies
+      ? ContentfulSubpartTrustedCompaniesMapper.toDomainEntity(
+          contentfulSectionHero.fields.trustedCompanies
+        )
+      : undefined;
     return {
       contentTypeId: contentfulSectionHero.sys.contentType.sys.id,
       heading: contentfulSectionHero.fields.heading,
@@ -22,6 +28,7 @@ export class ContentfulSectionHeroMapper {
         contentfulSectionHero.fields.image
       ),
       button: subpartButton,
+      trustedCompanies: trusted_companies,
     };
   }
 

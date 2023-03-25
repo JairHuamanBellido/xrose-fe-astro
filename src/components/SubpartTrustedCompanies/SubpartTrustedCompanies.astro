@@ -1,0 +1,27 @@
+---
+import type { SubpartTrustedCompaniesDomain } from "../../lib/shared/components-model/subpartTrustedCompanies/domain/model/SubpartTrustedCompaniesDomain.model";
+import { Image } from "@astrojs/image/components";
+
+interface Props extends SubpartTrustedCompaniesDomain {}
+const { companies_logo, label } = Astro.props;
+---
+
+<div class="relative">
+  <p class="text-gray-400">{label}</p>
+  <div class="flex mt-2 max-w-xs gap-x-12 items-center">
+    {
+      companies_logo.map((logo) => (
+        <Image
+          loading={"lazy"}
+          alt={logo.altText}
+          class={"w-[120px] relative"}
+          width={1000}
+          fit={"contain"}
+          background={'rgba(0,0,0,0.0)'}
+          height={400}
+          src={logo.url}
+        />
+      ))
+    }
+  </div>
+</div>
