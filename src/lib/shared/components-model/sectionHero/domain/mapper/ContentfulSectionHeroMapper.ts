@@ -1,7 +1,6 @@
 import type { Entry } from "contentful";
 import type { ContentfulSectionHeroContentType } from "../../infrastructure/model/ContentfulSectionHeroContentType.interface";
 import type { SectionHeroDomain } from "../model/SectionHeroDomain.model";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { ContentfulMediaFileMapper } from "../../../mediaFile/domain/mapper/ContentfulMediaFileMapper";
 
 export class ContentfulSectionHeroMapper {
@@ -11,7 +10,7 @@ export class ContentfulSectionHeroMapper {
     return {
       contentTypeId: contentfulSectionHero.sys.contentType.sys.id,
       heading: contentfulSectionHero.fields.heading,
-      htmlBody: documentToHtmlString(contentfulSectionHero.fields.body),
+      htmlBody: contentfulSectionHero.fields.body,
       image: ContentfulMediaFileMapper.toDomainEntity(
         contentfulSectionHero.fields.image
       ),

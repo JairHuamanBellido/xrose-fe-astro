@@ -1,19 +1,20 @@
 ---
 import { Image } from "@astrojs/image/components";
 import type { SectionHeroDomain } from "../../lib/shared/components-model/sectionHero/domain/model/SectionHeroDomain.model";
+import RichText from "../RichText/RichText";
 
 interface Props extends SectionHeroDomain {}
 
 const { heading, htmlBody, image } = Astro.props;
 ---
 
-<section class="w-full bg-[#fcf9f7]">
+<section class="w-full bg-[#f3f3ff]">
   <div
     class="max-w-[1440px] relative mx-auto h-[700px] flex justify-between items-center gap-x-20"
   >
     <div class="w-3/5">
       <h1 class="text-5xl leading-normal font-semibold mb-8">{heading}</h1>
-      {htmlBody && <div class="text-gray-600 text-base leading-relaxed" set:html={htmlBody} />}
+      {htmlBody && <RichText htmlBody={htmlBody} />}
     </div>
     <div class="w-2/5 relative">
       <Image
