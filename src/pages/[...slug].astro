@@ -1,13 +1,14 @@
 ---
+import "../styles/global.css";
 import Navigation from "../components/Navigation/navigation.astro";
 import { GetNavigationUseCase } from "../lib/navigation/domain/use-case/GetNavigationUseCase";
 import { GetPageBySlugUseCase } from "../lib/page/domain/use-case/GetPageBySlugUseCase";
+import { componentDictionary } from "../lib/shared/dictionary/component-dictionary";
 
 const { slug } = Astro.params;
 
 const slugParsed = slug === undefined ? "/" : slug;
 
-console.log(slugParsed);
 const getPageBySlug = new GetPageBySlugUseCase();
 const getNavigation = new GetNavigationUseCase();
 // const page = await getPageBySlug.execute(slugParsed);
@@ -34,6 +35,12 @@ const [page, navigation] = await Promise.all([
   </head>
   <body>
     <Navigation navigation={navigation} />
-    <h1>Astro</h1>
+    {
+      page.content.sections.map((e) => {
+        if (!e) return null;
+        const Component = componentDictionary[e.contentTypeId];
+        return <Component {...e} />;
+      })
+    }
   </body>
 </html>
