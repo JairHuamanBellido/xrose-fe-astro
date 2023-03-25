@@ -9,12 +9,9 @@ const { slug } = Astro.params;
 
 const slugParsed = slug === undefined ? "/" : slug;
 
-const getPageBySlug = new GetPageBySlugUseCase();
-const getNavigation = new GetNavigationUseCase();
-// const page = await getPageBySlug.execute(slugParsed);
 const [page, navigation] = await Promise.all([
-  await getPageBySlug.execute(slugParsed),
-  await getNavigation.execute(),
+  await GetPageBySlugUseCase.execute(slugParsed),
+  await GetNavigationUseCase.execute(),
 ]);
 ---
 

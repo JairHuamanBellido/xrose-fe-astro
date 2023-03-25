@@ -3,7 +3,7 @@ import { contentfulClient } from "../../../shared/contentful/connection/contentf
 import type { ContentfulNavigationContentType } from "../model/contentful/ContentfulNavigationContentType.interface";
 
 export class ContentfulNavigationRepository {
-  async get(): Promise<Entry<ContentfulNavigationContentType>> {
+  static async get(): Promise<Entry<ContentfulNavigationContentType>> {
     const contentful_response =
       await contentfulClient.getEntries<ContentfulNavigationContentType>({
         content_type: "navigation",
