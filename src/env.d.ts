@@ -1,4 +1,6 @@
 /// <reference types="astro/client" />
+/// <reference types="@astrojs/image/client" />
+
 interface ImportMetaEnv {
   readonly API_URL: string;
   readonly CONTENTFUL_SPACE_ID: string;
