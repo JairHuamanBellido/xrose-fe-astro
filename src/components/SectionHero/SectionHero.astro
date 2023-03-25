@@ -1,11 +1,12 @@
 ---
 import { Image } from "@astrojs/image/components";
 import type { SectionHeroDomain } from "../../lib/shared/components-model/sectionHero/domain/model/SectionHeroDomain.model";
+import Button from "../Button/Button.astro";
 import RichText from "../RichText/RichText";
 
 interface Props extends SectionHeroDomain {}
 
-const { heading, htmlBody, image } = Astro.props;
+const { heading, htmlBody, image, button } = Astro.props;
 ---
 
 <section class="w-full bg-[#f3f3ff]">
@@ -15,6 +16,13 @@ const { heading, htmlBody, image } = Astro.props;
     <div class="w-3/5">
       <h1 class="text-5xl leading-normal font-semibold mb-8">{heading}</h1>
       {htmlBody && <RichText htmlBody={htmlBody} />}
+      {
+        button && (
+          <div class="mt-8">
+            <Button text={button.text} variant={button.variant} />
+          </div>
+        )
+      }
     </div>
     <div class="w-2/5 relative">
       <Image
