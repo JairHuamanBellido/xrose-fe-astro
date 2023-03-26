@@ -8,4 +8,5 @@ export interface SectionInformationDomain {
   readonly button?: SubpartButtonDomain;
   readonly image: MediaFileDomain;
   readonly reverse: boolean;
+  readonly contentTypeId:string;
 }

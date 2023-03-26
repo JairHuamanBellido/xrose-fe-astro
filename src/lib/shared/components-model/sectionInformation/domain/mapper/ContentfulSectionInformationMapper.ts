@@ -14,6 +14,7 @@ export class ContentfulSectionInformationMapper {
         )
       : undefined;
     return {
+      contentTypeId: contentfulSectionInformation.sys.contentType.sys.id,
       heading: contentfulSectionInformation.fields.heading,
       body: contentfulSectionInformation.fields.body,
       image: ContentfulMediaFileMapper.toDomainEntity(

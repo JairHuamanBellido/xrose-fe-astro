@@ -1,0 +1,38 @@
+---
+import type { SectionInformationDomain } from "../../lib/shared/components-model/sectionInformation/domain/model/SectionInformationDomain.model";
+import Button from "../Button/Button.astro";
+import RichText from "../RichText/RichText";
+import { Image } from "@astrojs/image/components";
+
+interface Props extends SectionInformationDomain {}
+
+const { body, heading, image, reverse, button } = Astro.props;
+const flexReverse = reverse ? "flex-row-reverse" : "flex-row";
+---
+
+<section class="w-full py-20">
+  <div
+    class={`max-w-[1440px] h-[400px] relative mx-auto flex ${flexReverse} items-center gap-x-12 `}
+  >
+    <div class="w-1/2">
+      <h2 class="text-4xl font-semibold mb-8 leading-normal">{heading}</h2>
+      <div class="text-gray-500 text-justify">
+        <RichText htmlBody={body} />
+      </div>
+      {button && <Button text={button.text} variant={button.variant} />}
+    </div>
+    <div class="w-1/2 flex items-center justify-center relative">
+      <div class="w-[400px] h-[400px] relative">
+        <Image
+          loading={"lazy"}
+          alt={image.altText}
+          src={image.url}
+          class={"w-full h-full rounded-2xl"}
+          width={1000}
+          fit={"cover"}
+          height={1000}
+        />
+      </div>
+    </div>
+  </div>
+</section>
