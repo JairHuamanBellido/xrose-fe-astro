@@ -1,0 +1,14 @@
+---
+import type { SubpartRecommendationDomain } from "../../lib/shared/components-model/subpartRecommendation/domain/model/SubpartRecommendationDomain.model";
+import RichText from "../RichText/RichText";
+
+interface Props extends SubpartRecommendationDomain {}
+const { body, heading } = Astro.props;
+---
+
+<div>
+  <h3 class="text-xl font-medium mb-4">{heading}</h3>
+  <div class="text-gray-500 text-justify">
+    <RichText htmlBody={body} />
+  </div>
+</div>

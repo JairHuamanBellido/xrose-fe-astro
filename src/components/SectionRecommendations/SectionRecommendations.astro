@@ -1,0 +1,28 @@
+---
+import type { SectionRecommendationsDomain } from "../../lib/shared/components-model/sectionRecommendations/domain/model/SectionRecommendationsDomain.model";
+import SubpartRecommendation from "../SubpartRecommendation/SubpartRecommendation.astro";
+
+interface Props extends SectionRecommendationsDomain {}
+
+const { heading, recommendations } = Astro.props;
+---
+
+<section class="w-full py-20 bg-[#f7f6e8]">
+  <div
+    class="max-w-[1440px] relative mx-auto flex justify-between items-center gap-x-20"
+  >
+    <div class="w-1/3">
+      <h2 class="text-2xl font-semibold">{heading}</h2>
+    </div>
+    <div class="w-2/3 flex items-center justify-between gap-x-12">
+      {
+        recommendations.map((recommendation) => (
+          <SubpartRecommendation
+            body={recommendation.body}
+            heading={recommendation.heading}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

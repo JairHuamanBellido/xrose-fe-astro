@@ -8,6 +8,7 @@ export class ContentfulSectionRecommendationsMapper {
     contentfulSectionRecommendations: Entry<ContentfulSectionRecommendationsContentType>
   ): SectionRecommendationsDomain {
     return {
+      contentTypeId: contentfulSectionRecommendations.sys.contentType.sys.id,
       heading: contentfulSectionRecommendations.fields.heading,
       recommendations: ContentfulSubpartRecommendationMapper.toDomainEntities(
         contentfulSectionRecommendations.fields.recommendations
