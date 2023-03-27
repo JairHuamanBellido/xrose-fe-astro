@@ -19,7 +19,12 @@ const flexReverse = reverse ? "flex-row-reverse" : "flex-row";
       <div class="text-gray-500 text-justify">
         <RichText htmlBody={body} />
       </div>
-      {button && <Button text={button.text} variant={button.variant} />}
+      {button && 
+      <div class="mt-8">
+        <Button text={button.text} variant={button.variant} />
+        </div>
+      
+      }
     </div>
     <div class="w-1/2 flex items-center justify-center relative">
       <div class="w-[400px] h-[400px] relative">
