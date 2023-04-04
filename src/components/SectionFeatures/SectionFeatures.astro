@@ -1,0 +1,29 @@
+---
+import type { SectionFeaturesDomain } from "../../lib/shared/components-model/sectionFeatures/domain/model/SectionFeaturesDomain.model";
+import RichText from "../RichText/RichText";
+import SubpartFeature from "../SubpartFeature/SubpartFeature.astro";
+
+interface Props extends SectionFeaturesDomain {}
+
+const { features, heading, body } = Astro.props;
+---
+
+<section class="w-full py-20">
+  <div class="max-w-[1440px] relative mx-auto flex-col items-center gap-x-20">
+    <div>
+      <h2 class="text-4xl text-center font-semibold mb-8 leading-normal">
+        {heading}
+      </h2>
+      {
+        body && (
+          <div class="w-1/2 text-gray-500 mx-auto text-center">
+            <RichText htmlBody={body} />
+          </div>
+        )
+      }
+    </div>
+    <div class="flex mt-16 items-center w-full gap-x-24">
+      {features.map((feature) => <SubpartFeature {...feature} />)}
+    </div>
+  </div>
+</section>

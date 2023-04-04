@@ -1,0 +1,33 @@
+---
+import { Image } from "@astrojs/image/components";
+import type { SubpartFeaturedCardDomain } from "../../lib/shared/components-model/subpartFeaturedCard/domain/model/SubpartFeaturedCardDomain.model";
+import RichText from "../RichText/RichText";
+import Button from "../Button/Button.astro";
+
+interface Props extends SubpartFeaturedCardDomain {}
+
+const { body, button, heading, image } = Astro.props;
+---
+
+<div class="flex-1 hover:shadow-left-shadow rounded-2xl">
+  <div class="h-[400px]  relative w-full">
+    <Image
+      loading={"lazy"}
+      alt={image.altText}
+      class={"w-full h-full rounded-t-xl"}
+      width={1000}
+      height={1000}
+      fit={"cover"}
+      src={image.url}
+    />
+  </div>
+  <div class="p-8">
+    <h3 class="text-2xl mb-4">{heading}</h3>
+    <div class="text-gray-500">
+      <RichText htmlBody={body} />
+    </div>
+    <div class="mt-6">
+      <Button text={button.text} variant={button.variant} />
+    </div>
+  </div>
+</div>

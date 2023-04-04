@@ -4,6 +4,7 @@ import { ContentfulSectionInformationMapper } from "../../../sectionInformation/
 import { ContentfulSectionRecommendationsMapper } from "../../../sectionRecommendations/domain/mapper/ContentfulSectionRecommendationsMapper";
 import type { ContentfulContentType } from "../../infrastructure/model/ContentfulContentType.interface";
 import type { ContentDomain } from "../model/ContentDomain.model";
+import { ContentfulSectionFeaturesMapper } from "../../../sectionFeatures/domain/mapper/ContentfulSectionFeaturesMapper";
 
 export class ContentfulContentMapper {
   static toDomainEntity(
@@ -20,6 +21,8 @@ export class ContentfulContentMapper {
             );
           case "sectionInformation":
             return ContentfulSectionInformationMapper.toDomainEntity(section);
+          case "sectionFeatures":
+            return ContentfulSectionFeaturesMapper.toDomainEntity(section);
           default:
             return null;
         }
